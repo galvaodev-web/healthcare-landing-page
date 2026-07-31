@@ -171,8 +171,15 @@
         padding: 0 30px;
         border: 1px solid transparent;
         border-radius: 3px;
+        font-family: inherit;
         font-weight: 700;
         font-size: 14px;
+        cursor: pointer;
+      }
+
+      .button:disabled {
+        cursor: not-allowed;
+        opacity: 0.48;
       }
 
       .button-primary {
@@ -563,6 +570,53 @@
         margin-top: 22px;
       }
 
+      .comment-field {
+        display: grid;
+        gap: 8px;
+        margin-top: 24px;
+      }
+
+      .comment-field label {
+        color: var(--primary);
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .comment-field textarea {
+        width: 100%;
+        min-height: 132px;
+        resize: vertical;
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        background: #ffffff;
+        color: var(--foreground);
+        padding: 14px;
+        font: inherit;
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      .comment-field textarea:focus {
+        outline: 2px solid rgba(74, 143, 168, 0.18);
+        border-color: var(--accent);
+      }
+
+      .comment-helper {
+        margin: 0;
+        color: var(--muted-foreground);
+        font-size: 12px;
+      }
+
+      .comment-actions {
+        display: grid;
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .comment-actions .button {
+        margin-top: 0;
+      }
+
       footer {
         background: var(--foreground);
         color: rgba(247, 246, 243, 0.62);
@@ -891,7 +945,15 @@
           <div class="schedule-box">
             <h3>Agende sua consulta</h3>
             <p>Consulte os horários disponíveis e finalize seu agendamento no ambiente oficial da Rede D'Or.</p>
-            <a class="button button-primary" href="https://www.rededorsaoluiz.com.br/paciente/marcar-consulta" target="_blank" rel="noopener noreferrer" data-track="contato_ver_horarios">Ver horários disponíveis</a>
+            <div class="comment-field">
+              <label for="patient-comment">Comentário do paciente</label>
+              <textarea id="patient-comment" maxlength="500" rows="5" placeholder="Descreva sua dúvida, sintoma ou preferência de horário."></textarea>
+              <p class="comment-helper"><span id="comment-count">0</span>/500 caracteres. O texto será enviado pelo WhatsApp.</p>
+            </div>
+            <div class="comment-actions">
+              <button class="button button-primary" type="button" id="send-comment" disabled>Enviar comentário pelo WhatsApp</button>
+              <a class="button button-secondary" href="https://www.rededorsaoluiz.com.br/paciente/marcar-consulta" target="_blank" rel="noopener noreferrer" data-track="contato_ver_horarios">Ver horários disponíveis</a>
+            </div>
             <p style="font-size: 12px; text-align: center;">Você será direcionado ao site oficial da Rede D'Or.</p>
           </div>
         </div>
@@ -909,18 +971,58 @@
       </div>
     </footer>
     <script>
+      function trackExternalLink(label, url) {
+        const payload = {
+          event_category: "engagement",
+          event_label: label,
+          link_url: url,
+        };
+
+        window.gtag?.("event", "click_external_link", payload);
+        window.dataLayer?.push({ event: "click_external_link", ...payload });
+      }
+
       document.querySelectorAll("[data-track]").forEach((link) => {
         link.addEventListener("click", () => {
-          const payload = {
-            event_category: "engagement",
-            event_label: link.getAttribute("data-track"),
-            link_url: link.href,
-          };
-
-          window.gtag?.("event", "click_external_link", payload);
-          window.dataLayer?.push({ event: "click_external_link", ...payload });
+          trackExternalLink(link.getAttribute("data-track"), link.href);
         });
       });
+
+      const commentField = document.getElementById("patient-comment");
+      const commentButton = document.getElementById("send-comment");
+      const commentCount = document.getElementById("comment-count");
+
+      function updateCommentState() {
+        const comment = commentField?.value.trim() || "";
+
+        if (commentCount && commentField) {
+          commentCount.textContent = String(commentField.value.length);
+        }
+
+        if (commentButton) {
+          commentButton.disabled = comment.length === 0;
+        }
+      }
+
+      commentField?.addEventListener("input", updateCommentState);
+      commentButton?.addEventListener("click", () => {
+        const comment = commentField?.value.trim();
+
+        if (!comment) {
+          return;
+        }
+
+        const message = [
+          "Olá, gostaria de deixar um comentário para o atendimento do Dr. Ronaldo Moura:",
+          "",
+          comment,
+        ].join("\n");
+        const url = `https://api.whatsapp.com/send?phone=61993712512&text=${encodeURIComponent(message)}`;
+
+        trackExternalLink("comentario_paciente_whatsapp", url);
+        window.open(url, "_blank", "noopener,noreferrer");
+      });
+      updateCommentState();
     </script>
   </body>
 </html>
