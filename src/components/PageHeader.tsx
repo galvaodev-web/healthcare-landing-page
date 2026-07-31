@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { LINKS, NAV_LINKS } from "../data/siteContent";
+import { trackExternalLink } from "../utils/analytics";
 
 function scrollToSection(selector: string) {
   document.querySelector(selector)?.scrollIntoView({ behavior: "smooth" });
@@ -12,6 +13,11 @@ export function PageHeader() {
   function navigateTo(selector: string) {
     setMobileOpen(false);
     scrollToSection(selector);
+  }
+
+  function openAppointment() {
+    trackExternalLink("header_agendar_consulta", LINKS.appointment);
+    window.open(LINKS.appointment, "_blank", "noopener,noreferrer");
   }
 
   return (
@@ -29,7 +35,7 @@ export function PageHeader() {
           </span>
         </div>
 
-        <nav className="hidden md:flex items-center gap-8" aria-label="Navegação principal">
+        <nav className="hidden lg:flex items-center gap-7" aria-label="Navegação principal">
           {NAV_LINKS.map((link) => (
             <button
               key={link.label}
@@ -40,7 +46,7 @@ export function PageHeader() {
             </button>
           ))}
           <button
-            onClick={() => window.open(LINKS.appointment, "_blank", "noopener,noreferrer")}
+            onClick={openAppointment}
             className="ml-2 px-5 py-2 bg-primary text-primary-foreground text-sm rounded-sm hover:bg-primary/90 transition-colors duration-200"
           >
             Agendar consulta
@@ -49,7 +55,7 @@ export function PageHeader() {
 
         <button
           type="button"
-          className="md:hidden text-primary"
+          className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-sm text-primary hover:bg-secondary"
           aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen((open) => !open)}
@@ -59,7 +65,7 @@ export function PageHeader() {
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden bg-background border-t border-border px-6 py-4 flex flex-col gap-4">
+        <div className="lg:hidden bg-background border-t border-border px-6 py-4 flex flex-col gap-4">
           {NAV_LINKS.map((link) => (
             <button
               key={link.label}
@@ -70,7 +76,7 @@ export function PageHeader() {
             </button>
           ))}
           <button
-            onClick={() => window.open(LINKS.appointment, "_blank", "noopener,noreferrer")}
+            onClick={openAppointment}
             className="mt-2 px-5 py-2 bg-primary text-primary-foreground text-sm rounded-sm w-full"
           >
             Agendar consulta
