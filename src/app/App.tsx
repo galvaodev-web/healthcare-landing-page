@@ -13,10 +13,15 @@ import {
   CAREER,
   CONTACT_ITEMS,
   CREDENTIALS,
+  FAQ_ITEMS,
+  HOSPITALS,
   LINKS,
+  PROFESSIONAL_REGISTRATION,
   SERVICES,
   STATS,
+  WHEN_TO_SEEK_CARE,
 } from "../data/siteContent";
+import { trackExternalLink } from "../utils/analytics";
 
 const CONTACT_ICONS = {
   phone: Phone,
@@ -30,9 +35,14 @@ export default function App() {
     document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
   }
 
+  function openExternal(label: string, url: string) {
+    trackExternalLink(label, url);
+    window.open(url, "_blank", "noopener,noreferrer");
+  }
+
   return (
     <div
-      className="min-h-screen bg-background text-foreground"
+      className="min-h-screen overflow-x-hidden bg-background text-foreground"
       style={{ fontFamily: "'Inter', sans-serif" }}
     >
       <PageHeader />
@@ -40,11 +50,11 @@ export default function App() {
       {/* ── HERO ── */}
       <section
         id="inicio"
-        className="pt-16 min-h-screen grid md:grid-cols-2"
+        className="pt-16 grid md:min-h-screen md:grid-cols-2"
       >
         {/* Left */}
-        <div className="flex flex-col justify-center px-8 md:px-16 lg:px-24 py-20">
-          <p className="text-accent text-xs tracking-widest uppercase mb-4 font-medium">
+        <div className="min-w-0 flex flex-col justify-start md:justify-center px-8 md:px-16 lg:px-24 py-14 md:py-20">
+          <p className="text-accent text-[11px] md:text-xs tracking-[0.12em] uppercase mb-4 font-medium leading-relaxed break-words">
             Angiologista · Cirurgião Vascular e Endovascular · Ecografista Vascular
           </p>
           <h1
@@ -59,14 +69,14 @@ export default function App() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <button
-              onClick={() => window.open(LINKS.appointment, "_blank", "noopener,noreferrer")}
-              className="flex items-center justify-center gap-2 px-8 py-3.5 bg-primary text-primary-foreground text-sm font-medium rounded-sm hover:bg-primary/90 transition-all duration-200 hover:gap-3"
+              onClick={() => openExternal("hero_agendar_consulta", LINKS.appointment)}
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3.5 bg-primary text-primary-foreground text-sm font-medium rounded-sm hover:bg-primary/90 transition-all duration-200 hover:gap-3"
             >
               Agendar consulta <ArrowRight size={16} />
             </button>
             <button
               onClick={() => scrollTo("#especialidades")}
-              className="flex items-center justify-center gap-2 px-8 py-3.5 border border-primary/30 text-primary text-sm font-medium rounded-sm hover:bg-secondary transition-colors duration-200"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3.5 border border-primary/30 text-primary text-sm font-medium rounded-sm hover:bg-secondary transition-colors duration-200"
             >
               Ver especialidades
             </button>
@@ -167,6 +177,49 @@ export default function App() {
         </div>
       </section>
 
+      {/* ── QUANDO PROCURAR ── */}
+      <section id="quando-procurar" className="bg-background py-24 px-6 border-y border-border">
+        <div className="max-w-6xl mx-auto">
+          <div className="max-w-2xl mb-12">
+            <p className="text-accent text-xs tracking-widest uppercase font-medium mb-3">
+              Quando procurar
+            </p>
+            <h2
+              className="text-3xl md:text-4xl text-primary"
+              style={{ fontFamily: "'Playfair Display', serif", fontWeight: 500 }}
+            >
+              Sinais que merecem avaliação vascular
+            </h2>
+            <p className="text-muted-foreground mt-4 leading-relaxed">
+              A avaliação médica ajuda a identificar alterações de circulação, orientar
+              prevenção e definir se há necessidade de exames complementares.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {WHEN_TO_SEEK_CARE.map((item) => (
+              <article
+                key={item.title}
+                className="bg-card border border-border rounded-sm p-6 min-h-64"
+              >
+                <div className="w-10 h-10 bg-secondary rounded-sm flex items-center justify-center mb-5">
+                  <item.icon size={19} className="text-accent" />
+                </div>
+                <h3 className="text-primary font-medium mb-3">{item.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{item.text}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-8 bg-secondary border border-border rounded-sm p-5">
+            <p className="text-primary text-sm leading-relaxed">
+              Em caso de dor súbita intensa, falta de ar, perda de força, alteração
+              importante de cor ou temperatura em membro, procure atendimento de urgência.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ── SOBRE ── */}
       <section id="sobre" className="bg-secondary py-24">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
@@ -212,8 +265,25 @@ export default function App() {
               ))}
             </div>
 
+            <div className="mt-8 grid sm:grid-cols-3 gap-3">
+              <div className="bg-background border border-border rounded-sm p-4">
+                <p className="text-muted-foreground text-xs uppercase tracking-wide mb-1">
+                  Registro
+                </p>
+                <p className="text-primary text-sm font-semibold">{PROFESSIONAL_REGISTRATION.crm}</p>
+              </div>
+              {PROFESSIONAL_REGISTRATION.rqe.map((item) => (
+                <div key={item} className="bg-background border border-border rounded-sm p-4">
+                  <p className="text-muted-foreground text-xs uppercase tracking-wide mb-1">
+                    Qualificação
+                  </p>
+                  <p className="text-primary text-sm font-semibold">{item}</p>
+                </div>
+              ))}
+            </div>
+
             <button
-              onClick={() => window.open(LINKS.appointment, "_blank", "noopener,noreferrer")}
+              onClick={() => openExternal("sobre_agendar_consulta", LINKS.appointment)}
               className="mt-10 flex items-center gap-2 text-sm text-primary font-medium border-b border-primary/40 pb-0.5 hover:border-primary transition-colors"
             >
               Agendar uma consulta <ChevronRight size={16} />
@@ -246,12 +316,88 @@ export default function App() {
           ))}
         </div>
         <div className="mt-10 flex flex-wrap justify-center gap-4">
-          <a href={LINKS.lattes} target="_blank" rel="noreferrer" className="px-6 py-3 border border-primary/30 text-primary text-sm rounded-sm hover:bg-secondary transition-colors">
+          <a
+            href={LINKS.lattes}
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => trackExternalLink("trajetoria_lattes", LINKS.lattes)}
+            className="px-6 py-3 border border-primary/30 text-primary text-sm rounded-sm hover:bg-secondary transition-colors"
+          >
             Ver currículo Lattes
           </a>
-          <a href={LINKS.doctoralia} target="_blank" rel="noreferrer" className="px-6 py-3 border border-primary/30 text-primary text-sm rounded-sm hover:bg-secondary transition-colors">
+          <a
+            href={LINKS.doctoralia}
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => trackExternalLink("trajetoria_doctoralia", LINKS.doctoralia)}
+            className="px-6 py-3 border border-primary/30 text-primary text-sm rounded-sm hover:bg-secondary transition-colors"
+          >
             Perfil no Doctoralia
           </a>
+        </div>
+      </section>
+
+      {/* ── LOCAIS ── */}
+      <section id="locais" className="bg-secondary py-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-14">
+            <p className="text-accent text-xs tracking-widest uppercase font-medium mb-3">
+              Locais de atendimento
+            </p>
+            <h2
+              className="text-3xl md:text-4xl text-primary"
+              style={{ fontFamily: "'Playfair Display', serif", fontWeight: 500 }}
+            >
+              Atendimento na Rede D'Or em Brasília
+            </h2>
+            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto leading-relaxed">
+              Consultas, exames e procedimentos devem ser confirmados no ambiente oficial
+              de agendamento conforme unidade, agenda e disponibilidade.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {HOSPITALS.map((hospital) => (
+              <article key={hospital.name} className="bg-card border border-border rounded-sm p-6">
+                <div className="w-10 h-10 bg-secondary rounded-sm flex items-center justify-center mb-5">
+                  <hospital.icon size={19} className="text-accent" />
+                </div>
+                <h3 className="text-primary font-medium mb-3">{hospital.name}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{hospital.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── DÚVIDAS ── */}
+      <section id="duvidas" className="py-24 px-6 max-w-6xl mx-auto">
+        <div className="text-center mb-14">
+          <p className="text-accent text-xs tracking-widest uppercase font-medium mb-3">
+            Dúvidas frequentes
+          </p>
+          <h2
+            className="text-3xl md:text-4xl text-primary"
+            style={{ fontFamily: "'Playfair Display', serif", fontWeight: 500 }}
+          >
+            Perguntas comuns antes da consulta
+          </h2>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-5">
+          {FAQ_ITEMS.map((item) => (
+            <article key={item.question} className="bg-card border border-border rounded-sm p-6">
+              <div className="flex items-start gap-4">
+                <div className="w-9 h-9 bg-secondary rounded-sm flex items-center justify-center flex-shrink-0">
+                  <item.icon size={17} className="text-accent" />
+                </div>
+                <div>
+                  <h3 className="text-primary font-medium mb-2">{item.question}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{item.answer}</p>
+                </div>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -292,6 +438,7 @@ export default function App() {
                         href={item.href}
                         target="_blank"
                         rel="noreferrer"
+                        onClick={() => trackExternalLink(`contato_${item.label}`, item.href)}
                         className="text-primary-foreground text-sm font-medium hover:text-accent transition-colors"
                       >
                         {item.value}
@@ -326,6 +473,7 @@ export default function App() {
               href={LINKS.directSchedule}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackExternalLink("contato_ver_horarios", LINKS.directSchedule)}
               className="w-full py-3.5 bg-primary text-primary-foreground text-sm font-bold rounded-sm hover:bg-primary/90 transition-colors duration-200 flex items-center justify-center text-center"
             >
               Ver horários disponíveis
@@ -349,6 +497,9 @@ export default function App() {
             </p>
             <p className="text-background/40 text-xs mt-0.5">
               Angiologia · Cirurgia Vascular e Endovascular · Ecografia Vascular
+            </p>
+            <p className="text-background/35 text-xs mt-2">
+              {PROFESSIONAL_REGISTRATION.crm} · {PROFESSIONAL_REGISTRATION.rqe.join(" · ")}
             </p>
           </div>
           <p className="text-background/30 text-xs text-center md:text-right">
