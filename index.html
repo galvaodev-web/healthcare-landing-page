@@ -6,16 +6,68 @@
     <title>Dr. Ronaldo Moura | Cirurgião Vascular e Endovascular em Brasília</title>
     <meta
       name="description"
-      content="Dr. Ronaldo Soares de Moura Filho: angiologista, cirurgião vascular e endovascular e ecografista vascular. Atendimento em hospitais da Rede D'Or em Brasília."
+      content="Dr. Ronaldo Soares de Moura Filho, CRM 30373/DF: angiologista, cirurgião vascular e endovascular e ecografista vascular em Brasília."
     />
+    <link rel="canonical" href="https://galvaodev-web.github.io/healthcare-landing-page/" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231e3d5c'/%3E%3Cpath d='M18 34h10V18h8v16h10v8H36v16h-8V42H18z' fill='%23f7f6f3'/%3E%3C/svg%3E"
+    />
+    <meta name="theme-color" content="#1e3d5c" />
     <meta name="robots" content="index, follow" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />
+    <meta property="og:url" content="https://galvaodev-web.github.io/healthcare-landing-page/" />
     <meta property="og:title" content="Dr. Ronaldo Moura | Cirurgião Vascular e Endovascular" />
     <meta
       property="og:description"
       content="Cuidado especializado em Angiologia, Cirurgia Vascular, Cirurgia Endovascular e Ecografia Vascular em Brasília."
     />
+    <meta
+      property="og:image"
+      content="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=1200&h=630&fit=crop&auto=format"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Dr. Ronaldo Moura | Cirurgião Vascular em Brasília" />
+    <meta
+      name="twitter:description"
+      content="Angiologia, Cirurgia Vascular, Cirurgia Endovascular e Ecografia Vascular em Brasília."
+    />
+    <meta
+      name="twitter:image"
+      content="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=1200&h=630&fit=crop&auto=format"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Physician",
+        "name": "Dr. Ronaldo Soares de Moura Filho",
+        "url": "https://galvaodev-web.github.io/healthcare-landing-page/",
+        "image": "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=1200&h=630&fit=crop&auto=format",
+        "telephone": "+55 61 99371-2512",
+        "medicalSpecialty": ["Angiologia", "Cirurgia Vascular", "Cirurgia Endovascular", "Ecografia Vascular"],
+        "identifier": [
+          "CRM 30373/DF",
+          "RQE 21394 - Cirurgia vascular",
+          "RQE 21770 - Cirurgia geral"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Brasília",
+          "addressRegion": "DF",
+          "addressCountry": "BR"
+        },
+        "areaServed": {
+          "@type": "AdministrativeArea",
+          "name": "Distrito Federal"
+        },
+        "sameAs": [
+          "https://www.rededorsaoluiz.com.br/encontre-um-medico/perfil/ronaldo-soares-de-moura-filho",
+          "http://lattes.cnpq.br/1246343587689952",
+          "https://www.doctoralia.com.br/z/qF9zAV"
+        ]
+      }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -48,6 +100,7 @@
         background: var(--background);
         color: var(--foreground);
         font-family: Inter, sans-serif;
+        overflow-x: hidden;
       }
 
       a {
@@ -101,9 +154,9 @@
       .nav {
         display: flex;
         align-items: center;
-        gap: 26px;
+        gap: 20px;
         color: var(--muted-foreground);
-        font-size: 14px;
+        font-size: 13px;
       }
 
       .nav a:hover {
@@ -313,6 +366,72 @@
         line-height: 1.65;
       }
 
+      .four-grid {
+        margin-top: 48px;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .two-grid {
+        margin-top: 48px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .feature-card {
+        min-height: 230px;
+      }
+
+      .soft-section {
+        background: var(--secondary);
+      }
+
+      .alert-band {
+        margin-top: 30px;
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        background: var(--secondary);
+        padding: 20px;
+        color: var(--primary);
+        font-size: 14px;
+        line-height: 1.65;
+      }
+
+      .registry-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .registry-card {
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        background: var(--background);
+        padding: 16px;
+      }
+
+      .registry-card span {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--muted-foreground);
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .registry-card strong {
+        color: var(--primary);
+        font-size: 13px;
+        line-height: 1.45;
+      }
+
+      .link-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 40px;
+      }
+
       .detail {
         margin-top: 18px;
         color: var(--accent);
@@ -503,6 +622,9 @@
         .stats-grid,
         .services,
         .career,
+        .four-grid,
+        .two-grid,
+        .registry-grid,
         .about-grid,
         .contact-grid {
           grid-template-columns: 1fr;
@@ -524,10 +646,11 @@
         <nav class="nav" aria-label="Navegação principal">
           <a href="#inicio">Início</a>
           <a href="#especialidades">Áreas de atuação</a>
+          <a href="#quando-procurar">Quando procurar</a>
           <a href="#sobre">Sobre</a>
-          <a href="#trajetoria">Trajetória</a>
+          <a href="#duvidas">Dúvidas</a>
           <a href="#contato">Contato</a>
-          <a class="button button-primary" href="https://www.rededorsaoluiz.com.br/encontre-um-medico/perfil/ronaldo-soares-de-moura-filho" target="_blank" rel="noopener noreferrer">Agendar consulta</a>
+          <a class="button button-primary" href="https://www.rededorsaoluiz.com.br/encontre-um-medico/perfil/ronaldo-soares-de-moura-filho" target="_blank" rel="noopener noreferrer" data-track="header_agendar_consulta">Agendar consulta</a>
         </nav>
       </div>
     </header>
@@ -542,7 +665,7 @@
             Cirurgia Vascular, Angiorradiologia e Cirurgia Endovascular.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="https://www.rededorsaoluiz.com.br/encontre-um-medico/perfil/ronaldo-soares-de-moura-filho" target="_blank" rel="noopener noreferrer">Agendar consulta</a>
+            <a class="button button-primary" href="https://www.rededorsaoluiz.com.br/encontre-um-medico/perfil/ronaldo-soares-de-moura-filho" target="_blank" rel="noopener noreferrer" data-track="hero_agendar_consulta">Agendar consulta</a>
             <a class="button button-secondary" href="#especialidades">Ver especialidades</a>
           </div>
           <p class="note">Atendimento em hospitais de referência da Rede D'Or no Distrito Federal</p>
@@ -598,6 +721,41 @@
         </div>
       </section>
 
+      <section id="quando-procurar" class="section">
+        <div class="container">
+          <div>
+            <p class="eyebrow">Quando procurar</p>
+            <h2>Sinais que merecem avaliação vascular</h2>
+            <p class="section-copy" style="margin-left: 0;">
+              A avaliação médica ajuda a identificar alterações de circulação, orientar prevenção
+              e definir se há necessidade de exames complementares.
+            </p>
+          </div>
+          <div class="grid four-grid">
+            <article class="card feature-card">
+              <h3>Dor, peso ou cansaço nas pernas</h3>
+              <p>Sintomas persistentes, piora ao longo do dia ou sensação de queimação podem indicar necessidade de avaliação vascular.</p>
+            </article>
+            <article class="card feature-card">
+              <h3>Varizes, vasinhos e inchaço</h3>
+              <p>A consulta ajuda a entender a causa, avaliar circulação venosa e definir acompanhamento ou tratamento adequado.</p>
+            </article>
+            <article class="card feature-card">
+              <h3>Trombose, feridas ou pé diabético</h3>
+              <p>Histórico de trombose, feridas de difícil cicatrização ou alterações circulatórias pedem cuidado especializado.</p>
+            </article>
+            <article class="card feature-card">
+              <h3>Sinais de alerta</h3>
+              <p>Dor súbita intensa, falta de ar, perda de força, alteração de cor importante ou ferida grave exigem atendimento de urgência.</p>
+            </article>
+          </div>
+          <div class="alert-band">
+            Em caso de dor súbita intensa, falta de ar, perda de força, alteração importante de cor
+            ou temperatura em membro, procure atendimento de urgência.
+          </div>
+        </div>
+      </section>
+
       <section id="sobre" class="section about">
         <div class="container about-grid">
           <div class="portrait">
@@ -622,6 +780,20 @@
               <div class="credential">✓ Residência em Angiorradiologia e Cirurgia Endovascular</div>
               <div class="credential">✓ Título de Especialista em Cirurgia Vascular pela SBACV/AMB</div>
             </div>
+            <div class="registry-grid">
+              <div class="registry-card">
+                <span>Registro</span>
+                <strong>CRM 30373/DF</strong>
+              </div>
+              <div class="registry-card">
+                <span>Qualificação</span>
+                <strong>RQE 21394 - Cirurgia vascular</strong>
+              </div>
+              <div class="registry-card">
+                <span>Qualificação</span>
+                <strong>RQE 21770 - Cirurgia geral</strong>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -639,6 +811,68 @@
           <article class="card"><div class="period">2022</div><h3>Especialista em Cirurgia Vascular</h3><p>Título concedido pela SBACV/AMB.</p></article>
           <article class="card"><div class="period">2023 – atual</div><h3>Cirurgião Vascular no Distrito Federal</h3><p>Atuação nos hospitais DF Star, Hospital do Coração do Brasil, Santa Luzia e Santa Helena.</p></article>
         </div>
+        <div class="container link-row">
+          <a class="button button-secondary" href="http://lattes.cnpq.br/1246343587689952" target="_blank" rel="noopener noreferrer" data-track="trajetoria_lattes">Ver currículo Lattes</a>
+          <a class="button button-secondary" href="https://www.doctoralia.com.br/z/qF9zAV" target="_blank" rel="noopener noreferrer" data-track="trajetoria_doctoralia">Perfil no Doctoralia</a>
+        </div>
+      </section>
+
+      <section id="locais" class="section soft-section">
+        <div class="container center">
+          <p class="eyebrow">Locais de atendimento</p>
+          <h2>Atendimento na Rede D'Or em Brasília</h2>
+          <p class="section-copy">
+            Consultas, exames e procedimentos devem ser confirmados no ambiente oficial de agendamento
+            conforme unidade, agenda e disponibilidade.
+          </p>
+        </div>
+        <div class="container grid four-grid">
+          <article class="card feature-card">
+            <h3>DF Star</h3>
+            <p>Atendimento e procedimentos em estrutura hospitalar da Rede D'Or no Distrito Federal.</p>
+          </article>
+          <article class="card feature-card">
+            <h3>Hospital do Coração do Brasil</h3>
+            <p>Atuação em Cirurgia Vascular, Cirurgia Endovascular e Ecografia Vascular.</p>
+          </article>
+          <article class="card feature-card">
+            <h3>Hospital Santa Luzia</h3>
+            <p>Disponibilidade de consultas e procedimentos conforme agenda oficial da Rede D'Or.</p>
+          </article>
+          <article class="card feature-card">
+            <h3>Hospital Santa Helena</h3>
+            <p>Cuidado vascular em Brasília com suporte hospitalar e encaminhamento individualizado.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="duvidas" class="section">
+        <div class="container center">
+          <p class="eyebrow">Dúvidas frequentes</p>
+          <h2>Perguntas comuns antes da consulta</h2>
+        </div>
+        <div class="container grid two-grid">
+          <article class="card">
+            <h3>Quando devo procurar um angiologista ou cirurgião vascular?</h3>
+            <p>Dor, inchaço, varizes, sensação de peso nas pernas, feridas que demoram a cicatrizar, histórico de trombose ou suspeita de alteração circulatória justificam avaliação especializada.</p>
+          </article>
+          <article class="card">
+            <h3>O que é o Eco-Doppler vascular?</h3>
+            <p>É um exame de ultrassom que avalia o fluxo de sangue em artérias e veias, ajudando no diagnóstico e no planejamento do tratamento.</p>
+          </article>
+          <article class="card">
+            <h3>Toda doença vascular precisa de cirurgia?</h3>
+            <p>Não. A conduta depende do diagnóstico, dos sintomas, dos exames e do contexto de cada paciente. Muitas situações podem ser acompanhadas clinicamente.</p>
+          </article>
+          <article class="card">
+            <h3>Onde é feito o atendimento?</h3>
+            <p>O atendimento ocorre em Brasília, em hospitais da Rede D'Or. Locais, horários e disponibilidade devem ser confirmados no agendamento oficial.</p>
+          </article>
+          <article class="card">
+            <h3>Atende por convênio?</h3>
+            <p>A disponibilidade por convênio pode variar conforme unidade, agenda e plano. A confirmação deve ser feita diretamente no ambiente oficial da Rede D'Or.</p>
+          </article>
+        </div>
       </section>
 
       <section id="contato" class="section contact">
@@ -648,16 +882,16 @@
             <h2>Agende sua consulta</h2>
             <p>Entre em contato pelo WhatsApp ou acesse o perfil do médico na Rede D'Or para consultar locais, horários e disponibilidade.</p>
             <div class="contact-list">
-              <div class="contact-item"><span>Telefone e WhatsApp</span><a href="https://api.whatsapp.com/send?phone=61993712512" target="_blank" rel="noopener noreferrer">(61) 99371-2512</a></div>
+              <div class="contact-item"><span>Telefone e WhatsApp</span><a href="https://api.whatsapp.com/send?phone=61993712512" target="_blank" rel="noopener noreferrer" data-track="contato_Telefone e WhatsApp">(61) 99371-2512</a></div>
               <div class="contact-item"><span>Atendimento</span><strong>Brasília - Distrito Federal</strong></div>
               <div class="contact-item"><span>Hospitais</span><strong>DF Star, Hospital do Coração, Santa Luzia e Santa Helena</strong></div>
-              <div class="contact-item"><span>Agendamento</span><a href="https://www.rededorsaoluiz.com.br/encontre-um-medico/perfil/ronaldo-soares-de-moura-filho" target="_blank" rel="noopener noreferrer">Consulte horários disponíveis</a></div>
+              <div class="contact-item"><span>Agendamento</span><a href="https://www.rededorsaoluiz.com.br/encontre-um-medico/perfil/ronaldo-soares-de-moura-filho" target="_blank" rel="noopener noreferrer" data-track="contato_Agendamento">Consulte horários disponíveis</a></div>
             </div>
           </div>
           <div class="schedule-box">
             <h3>Agende sua consulta</h3>
             <p>Consulte os horários disponíveis e finalize seu agendamento no ambiente oficial da Rede D'Or.</p>
-            <a class="button button-primary" href="https://www.rededorsaoluiz.com.br/paciente/marcar-consulta" target="_blank" rel="noopener noreferrer">Ver horários disponíveis</a>
+            <a class="button button-primary" href="https://www.rededorsaoluiz.com.br/paciente/marcar-consulta" target="_blank" rel="noopener noreferrer" data-track="contato_ver_horarios">Ver horários disponíveis</a>
             <p style="font-size: 12px; text-align: center;">Você será direcionado ao site oficial da Rede D'Or.</p>
           </div>
         </div>
@@ -669,9 +903,24 @@
         <div>
           <strong>Dr. Ronaldo Moura</strong>
           Angiologia · Cirurgia Vascular e Endovascular · Ecografia Vascular
+          <br />CRM 30373/DF · RQE 21394 - Cirurgia vascular · RQE 21770 - Cirurgia geral
         </div>
         <div>© 2026 Dr. Ronaldo Soares de Moura Filho. Todos os direitos reservados.<br />CFM Resolução nº 2.336/2023 — Publicidade médica</div>
       </div>
     </footer>
+    <script>
+      document.querySelectorAll("[data-track]").forEach((link) => {
+        link.addEventListener("click", () => {
+          const payload = {
+            event_category: "engagement",
+            event_label: link.getAttribute("data-track"),
+            link_url: link.href,
+          };
+
+          window.gtag?.("event", "click_external_link", payload);
+          window.dataLayer?.push({ event: "click_external_link", ...payload });
+        });
+      });
+    </script>
   </body>
 </html>
