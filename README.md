@@ -1,47 +1,51 @@
 # Dr. Ronaldo Moura
 
-Landing page profissional do Dr. Ronaldo Soares de Moura Filho, angiologista,
-cirurgião vascular e endovascular e ecografista vascular em Brasília.
+Página institucional do Dr. Ronaldo Soares de Moura Filho, médico angiologista,
+cirurgião vascular e endovascular, com atuação em Brasília.
 
-## Tecnologias
+## Sobre o Projeto
 
-- HTML5
-- CSS3
-- JavaScript
+Este projeto apresenta uma página profissional clara, objetiva e confiável para
+pacientes que buscam informações sobre atendimento vascular, áreas de atuação,
+formação médica e canais oficiais de agendamento.
 
-## Como abrir
+A página foi organizada para facilitar a leitura, transmitir credibilidade e
+orientar o visitante sem substituir uma consulta médica.
 
-Abra o arquivo `index.html` diretamente no navegador. Para testar por servidor
-local, use qualquer servidor estático simples, por exemplo:
+## Objetivo
 
-```bash
-npx --yes serve . -l 4173
-```
+O objetivo principal é reunir, em um único lugar, as informações essenciais sobre
+o médico e seu atendimento:
 
-Depois acesse `http://localhost:4173`.
+- especialidades e áreas de atuação;
+- sinais que indicam quando procurar avaliação vascular;
+- formação, trajetória e registros profissionais;
+- locais de atendimento em Brasília;
+- dúvidas frequentes antes da consulta;
+- contato e agendamento pelos canais oficiais.
 
-## Publicação
+## Público
 
-O site é publicado pelo workflow `.github/workflows/deploy-pages.yml`, que envia
-os arquivos estáticos diretamente para o GitHub Pages. Não há etapa de build.
+A página foi pensada para pacientes que desejam entender melhor quando procurar
+um angiologista ou cirurgião vascular, conhecer a experiência do profissional e
+encontrar caminhos seguros para agendar uma consulta.
 
-No GitHub, a fonte do Pages deve permanecer como **GitHub Actions**.
+## Conteúdo da Página
 
-## Conteúdo
+O conteúdo destaca o cuidado com a saúde vascular, incluindo angiologia, cirurgia
+vascular, cirurgia endovascular e ecografia vascular.
 
-A landing inclui:
+Também apresenta informações sobre sintomas que merecem atenção, como dor ou
+cansaço nas pernas, varizes, inchaço, histórico de trombose, feridas de difícil
+cicatrização e sinais de alerta.
 
-- especialidades médicas;
-- sinais para procurar avaliação vascular;
-- trajetória e registros profissionais;
-- locais de atendimento;
-- dúvidas frequentes;
-- contato e agendamento oficial.
+## Agendamento
 
-## Estrutura
+O agendamento é direcionado para os canais oficiais da Rede D'Or e para o contato
+informado na própria página.
 
-```text
-index.html
-styles.css
-main.js
-```
+## Observação
+
+As informações da página têm caráter informativo e não substituem avaliação
+médica individualizada. Em caso de sintomas intensos, súbitos ou sinais de
+urgência, o paciente deve procurar atendimento médico imediatamente.
