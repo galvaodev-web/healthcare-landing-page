@@ -5,33 +5,28 @@ cirurgião vascular e endovascular e ecografista vascular em Brasília.
 
 ## Tecnologias
 
-- React 18
-- TypeScript
-- Vite
-- Tailwind CSS
-- Lucide React
+- HTML5
+- CSS3
+- JavaScript
 
-## Desenvolvimento
+## Como abrir
 
-```bash
-pnpm install
-pnpm dev
-```
-
-## Build de produção
+Abra o arquivo `index.html` diretamente no navegador. Para testar por servidor
+local, use qualquer servidor estático simples, por exemplo:
 
 ```bash
-pnpm build
-pnpm preview
+npx --yes serve . -l 4173
 ```
+
+Depois acesse `http://localhost:4173`.
 
 ## Publicação
 
-O site é publicado pelo workflow `.github/workflows/deploy-pages.yml`, que gera a
-pasta `dist/` e envia o artefato para o GitHub Pages.
+O site é publicado pelo workflow `.github/workflows/deploy-pages.yml`, que envia
+o `index.html` e a pasta `assets/` diretamente para o GitHub Pages. Não há etapa
+de build.
 
-No GitHub, a fonte do Pages deve permanecer como **GitHub Actions**. Se a fonte
-for alterada para `main / root`, o Pages deixa de usar o build do Vite.
+No GitHub, a fonte do Pages deve permanecer como **GitHub Actions**.
 
 ## Conteúdo
 
@@ -47,10 +42,13 @@ A landing inclui:
 ## Estrutura
 
 ```text
+index.html
+assets/
+  css/
+    styles.css
+  js/
+    main.js
 src/
-  app/          Composição principal da página
-  assets/       Imagens locais
-  components/   Componentes reutilizáveis
-  data/         Conteúdo e links externos
-  styles/       Tema e estilos globais
+  assets/
+    Landingpage.jpg
 ```
