@@ -23,8 +23,7 @@ Depois acesse `http://localhost:4173`.
 ## Publicação
 
 O site é publicado pelo workflow `.github/workflows/deploy-pages.yml`, que envia
-o `index.html` e a pasta `assets/` diretamente para o GitHub Pages. Não há etapa
-de build.
+os arquivos estáticos diretamente para o GitHub Pages. Não há etapa de build.
 
 No GitHub, a fonte do Pages deve permanecer como **GitHub Actions**.
 
@@ -43,12 +42,6 @@ A landing inclui:
 
 ```text
 index.html
-assets/
-  css/
-    styles.css
-  js/
-    main.js
-src/
-  assets/
-    Landingpage.jpg
+styles.css
+main.js
 ```
