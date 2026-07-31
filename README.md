@@ -25,6 +25,25 @@ pnpm build
 pnpm preview
 ```
 
+## Publicação
+
+O site é publicado pelo workflow `.github/workflows/deploy-pages.yml`, que gera a
+pasta `dist/` e envia o artefato para o GitHub Pages.
+
+No GitHub, a fonte do Pages deve permanecer como **GitHub Actions**. Se a fonte
+for alterada para `main / root`, o Pages deixa de usar o build do Vite.
+
+## Conteúdo
+
+A landing inclui:
+
+- especialidades médicas;
+- sinais para procurar avaliação vascular;
+- trajetória e registros profissionais;
+- locais de atendimento;
+- dúvidas frequentes;
+- contato e agendamento oficial.
+
 ## Estrutura
 
 ```text
