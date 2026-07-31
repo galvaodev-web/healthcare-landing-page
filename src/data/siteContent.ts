@@ -1,6 +1,16 @@
-import { Activity, Award, Heart, Shield } from "lucide-react";
+import {
+  Activity,
+  AlertTriangle,
+  Award,
+  Building2,
+  Heart,
+  HelpCircle,
+  SearchCheck,
+  Shield,
+} from "lucide-react";
 
 export const LINKS = {
+  site: "https://galvaodev-web.github.io/healthcare-landing-page/",
   whatsapp: "https://api.whatsapp.com/send?phone=61993712512",
   appointment:
     "https://www.rededorsaoluiz.com.br/encontre-um-medico/perfil/ronaldo-soares-de-moura-filho",
@@ -12,10 +22,17 @@ export const LINKS = {
 export const NAV_LINKS = [
   { label: "Início", href: "#inicio" },
   { label: "Áreas de atuação", href: "#especialidades" },
+  { label: "Quando procurar", href: "#quando-procurar" },
   { label: "Sobre", href: "#sobre" },
-  { label: "Trajetória", href: "#trajetoria" },
+  { label: "Dúvidas", href: "#duvidas" },
   { label: "Contato", href: "#contato" },
 ] as const;
+
+export const PROFESSIONAL_REGISTRATION = {
+  crm: "CRM 30373/DF",
+  rqe: ["RQE 21394 - Cirurgia vascular", "RQE 21770 - Cirurgia geral"],
+  source: "Rede D'Or",
+} as const;
 
 export const SERVICES = [
   {
@@ -90,6 +107,85 @@ export const CREDENTIALS = [
   "Residência em Cirurgia Vascular pelo Hospital Federal da Lagoa",
   "Residência em Angiorradiologia e Cirurgia Endovascular",
   "Título de Especialista em Cirurgia Vascular pela SBACV/AMB",
+] as const;
+
+export const WHEN_TO_SEEK_CARE = [
+  {
+    icon: Activity,
+    title: "Dor, peso ou cansaço nas pernas",
+    text: "Sintomas persistentes, piora ao longo do dia ou sensação de queimação podem indicar necessidade de avaliação vascular.",
+  },
+  {
+    icon: SearchCheck,
+    title: "Varizes, vasinhos e inchaço",
+    text: "A consulta ajuda a entender a causa, avaliar circulação venosa e definir acompanhamento ou tratamento adequado.",
+  },
+  {
+    icon: Shield,
+    title: "Trombose, feridas ou pé diabético",
+    text: "Histórico de trombose, feridas de difícil cicatrização ou alterações circulatórias pedem cuidado especializado.",
+  },
+  {
+    icon: AlertTriangle,
+    title: "Sinais de alerta",
+    text: "Dor súbita intensa, falta de ar, perda de força, alteração de cor importante ou ferida grave exigem atendimento de urgência.",
+  },
+] as const;
+
+export const HOSPITALS = [
+  {
+    icon: Building2,
+    name: "DF Star",
+    text: "Atendimento e procedimentos em estrutura hospitalar da Rede D'Or no Distrito Federal.",
+  },
+  {
+    icon: Heart,
+    name: "Hospital do Coração do Brasil",
+    text: "Atuação em Cirurgia Vascular, Cirurgia Endovascular e Ecografia Vascular.",
+  },
+  {
+    icon: Building2,
+    name: "Hospital Santa Luzia",
+    text: "Disponibilidade de consultas e procedimentos conforme agenda oficial da Rede D'Or.",
+  },
+  {
+    icon: Building2,
+    name: "Hospital Santa Helena",
+    text: "Cuidado vascular em Brasília com suporte hospitalar e encaminhamento individualizado.",
+  },
+] as const;
+
+export const FAQ_ITEMS = [
+  {
+    icon: HelpCircle,
+    question: "Quando devo procurar um angiologista ou cirurgião vascular?",
+    answer:
+      "Dor, inchaço, varizes, sensação de peso nas pernas, feridas que demoram a cicatrizar, histórico de trombose ou suspeita de alteração circulatória justificam avaliação especializada.",
+  },
+  {
+    icon: SearchCheck,
+    question: "O que é o Eco-Doppler vascular?",
+    answer:
+      "É um exame de ultrassom que avalia o fluxo de sangue em artérias e veias, ajudando no diagnóstico e no planejamento do tratamento.",
+  },
+  {
+    icon: Shield,
+    question: "Toda doença vascular precisa de cirurgia?",
+    answer:
+      "Não. A conduta depende do diagnóstico, dos sintomas, dos exames e do contexto de cada paciente. Muitas situações podem ser acompanhadas clinicamente.",
+  },
+  {
+    icon: Building2,
+    question: "Onde é feito o atendimento?",
+    answer:
+      "O atendimento ocorre em Brasília, em hospitais da Rede D'Or. Locais, horários e disponibilidade devem ser confirmados no agendamento oficial.",
+  },
+  {
+    icon: Award,
+    question: "Atende por convênio?",
+    answer:
+      "A disponibilidade por convênio pode variar conforme unidade, agenda e plano. A confirmação deve ser feita diretamente no ambiente oficial da Rede D'Or.",
+  },
 ] as const;
 
 export const CONTACT_ITEMS = [
