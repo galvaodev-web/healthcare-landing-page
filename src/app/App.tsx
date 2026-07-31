@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Phone,
   MapPin,
@@ -31,12 +32,32 @@ const CONTACT_ICONS = {
 } as const;
 
 export default function App() {
+  const [patientComment, setPatientComment] = useState("");
+
   function scrollTo(id: string) {
     document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
   }
 
   function openExternal(label: string, url: string) {
     trackExternalLink(label, url);
+    window.open(url, "_blank", "noopener,noreferrer");
+  }
+
+  function openPatientComment() {
+    const comment = patientComment.trim();
+
+    if (!comment) {
+      return;
+    }
+
+    const message = [
+      "Olá, gostaria de deixar um comentário para o atendimento do Dr. Ronaldo Moura:",
+      "",
+      comment,
+    ].join("\n");
+    const url = `${LINKS.whatsapp}&text=${encodeURIComponent(message)}`;
+
+    trackExternalLink("comentario_paciente_whatsapp", url);
     window.open(url, "_blank", "noopener,noreferrer");
   }
 
@@ -469,12 +490,40 @@ export default function App() {
               Consulte os horários disponíveis e finalize seu agendamento no ambiente
               oficial da Rede D’Or.
             </p>
+            <div className="mb-6">
+              <label
+                htmlFor="patient-comment"
+                className="block text-primary text-sm font-semibold mb-2"
+              >
+                Comentário do paciente
+              </label>
+              <textarea
+                id="patient-comment"
+                value={patientComment}
+                onChange={(event) => setPatientComment(event.target.value)}
+                maxLength={500}
+                rows={5}
+                placeholder="Descreva sua dúvida, sintoma ou preferência de horário."
+                className="w-full resize-y rounded-sm border border-border bg-white px-4 py-3 text-sm leading-relaxed text-foreground outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-accent focus:ring-2 focus:ring-accent/15"
+              />
+              <p className="mt-2 text-xs text-muted-foreground">
+                {patientComment.length}/500 caracteres. O texto será enviado pelo WhatsApp.
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={openPatientComment}
+              disabled={!patientComment.trim()}
+              className="w-full py-3.5 bg-primary text-primary-foreground text-sm font-bold rounded-sm hover:bg-primary/90 disabled:cursor-not-allowed disabled:bg-primary/45 transition-colors duration-200 flex items-center justify-center text-center"
+            >
+              Enviar comentário pelo WhatsApp
+            </button>
             <a
               href={LINKS.directSchedule}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackExternalLink("contato_ver_horarios", LINKS.directSchedule)}
-              className="w-full py-3.5 bg-primary text-primary-foreground text-sm font-bold rounded-sm hover:bg-primary/90 transition-colors duration-200 flex items-center justify-center text-center"
+              className="mt-3 w-full py-3.5 border border-primary/25 text-primary text-sm font-bold rounded-sm hover:bg-secondary transition-colors duration-200 flex items-center justify-center text-center"
             >
               Ver horários disponíveis
             </a>
