@@ -31,9 +31,7 @@ jobs:
         run: |
           mkdir -p site
           cp index.html site/
-          cp -R assets site/assets
-          mkdir -p site/src
-          cp -R src/assets site/src/assets
+          cp styles.css main.js site/
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
