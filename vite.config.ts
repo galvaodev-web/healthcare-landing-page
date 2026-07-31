@@ -4,7 +4,13 @@ import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  base: '/healthcare-landing-page/',
+  root: 'src',
+  base: './',
+  build: {
+    outDir: '../dist',
+    emptyOutDir: true,
+    assetsInlineLimit: 10000,
+  },
   plugins: [
     react(),
     tailwindcss(),
