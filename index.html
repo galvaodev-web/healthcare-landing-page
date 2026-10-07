@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
+    <!-- Configurações básicas da página e comportamento em dispositivos móveis. -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dr. Ronaldo Moura | Cirurgião Vascular e Endovascular em Brasília</title>
     <meta
       name="description"
-      content="Dr. Ronaldo Soares de Moura Filho, CRM 30373/DF: angiologista, cirurgião vascular e endovascular e ecografista vascular em Brasília."
+      content="Cirurgião vascular e endovascular em Brasília. Avaliação de varizes, trombose, circulação arterial, pé diabético e Eco-Doppler vascular."
     />
-    <link rel="canonical" href="https://galvaodev-web.github.io/healthcare-landing-page/" />
+
+    <!-- Favicon vazio para evitar a exibição do ícone padrão antigo na aba. -->
     <link
       rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231e3d5c'/%3E%3Cpath d='M18 34h10V18h8v16h10v8H36v16h-8V42H18z' fill='%23f7f6f3'/%3E%3C/svg%3E"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E"
     />
+
+    <!-- Metadados para SEO, compartilhamento em redes sociais e indexação. -->
+    <link rel="canonical" href="https://galvaodev-web.github.io/healthcare-landing-page/" />
     <meta name="theme-color" content="#1e3d5c" />
     <meta name="robots" content="index, follow" />
     <meta property="og:type" content="website" />
@@ -21,29 +27,31 @@
     <meta property="og:title" content="Dr. Ronaldo Moura | Cirurgião Vascular e Endovascular" />
     <meta
       property="og:description"
-      content="Cuidado especializado em Angiologia, Cirurgia Vascular, Cirurgia Endovascular e Ecografia Vascular em Brasília."
+      content="Avaliação de varizes, trombose, circulação arterial, pé diabético e Eco-Doppler vascular em Brasília."
     />
     <meta
       property="og:image"
-      content="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=1200&h=630&fit=crop&auto=format"
+      content="https://raw.githubusercontent.com/galvaodev-web/healthcare-landing-page/dca3d348d60738cb996bbf9814ce7856b443ca0c/src/assets/Landingpage.jpg"
     />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Dr. Ronaldo Moura | Cirurgião Vascular em Brasília" />
     <meta
       name="twitter:description"
-      content="Angiologia, Cirurgia Vascular, Cirurgia Endovascular e Ecografia Vascular em Brasília."
+      content="Varizes, trombose, circulação arterial, pé diabético e Eco-Doppler vascular em Brasília."
     />
     <meta
       name="twitter:image"
-      content="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=1200&h=630&fit=crop&auto=format"
+      content="https://raw.githubusercontent.com/galvaodev-web/healthcare-landing-page/dca3d348d60738cb996bbf9814ce7856b443ca0c/src/assets/Landingpage.jpg"
     />
+
+    <!-- Dados estruturados ajudam buscadores a entenderem o perfil médico da página. -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Physician",
         "name": "Dr. Ronaldo Soares de Moura Filho",
         "url": "https://galvaodev-web.github.io/healthcare-landing-page/",
-        "image": "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=1200&h=630&fit=crop&auto=format",
+        "image": "https://raw.githubusercontent.com/galvaodev-web/healthcare-landing-page/dca3d348d60738cb996bbf9814ce7856b443ca0c/src/assets/Landingpage.jpg",
         "telephone": "+55 61 99371-2512",
         "medicalSpecialty": ["Angiologia", "Cirurgia Vascular", "Cirurgia Endovascular", "Ecografia Vascular"],
         "identifier": [
@@ -68,6 +76,8 @@
         ]
       }
     </script>
+
+    <!-- Fontes externas e arquivo principal de estilos. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -77,18 +87,27 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <!-- Cabeçalho fixo com marca, navegação interna e chamada para agendamento. -->
     <header class="header">
       <div class="header-inner">
         <a class="brand" href="#inicio" aria-label="Dr. Ronaldo Moura">
           <strong>Dr. Ronaldo Moura</strong>
           <span>Cirurgia Vascular</span>
         </a>
-        <nav class="nav" aria-label="Navegação principal">
+        <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="primary-navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="nav" id="primary-navigation" aria-label="Navegação principal">
           <a href="#inicio">Início</a>
           <a href="#especialidades">Áreas de atuação</a>
           <a href="#quando-procurar">Quando procurar</a>
           <a href="#sobre">Sobre</a>
           <a href="#duvidas">Dúvidas</a>
+          <a href="#avaliacoes">Avaliações</a>
           <a href="#contato">Contato</a>
           <a class="button button-primary" href="https://www.rededorsaoluiz.com.br/encontre-um-medico/perfil/ronaldo-soares-de-moura-filho" target="_blank" rel="noopener noreferrer" data-track="header_agendar_consulta">Agendar consulta</a>
         </nav>
@@ -96,82 +115,87 @@
     </header>
 
     <main>
+      <!-- Hero: primeira dobra da página, com promessa principal, CTA e imagem de apoio. -->
       <section id="inicio" class="hero">
         <div class="hero-content">
-          <p class="eyebrow">Angiologista · Cirurgião Vascular e Endovascular · Ecografista Vascular</p>
-          <h1>Saúde vascular com cuidado e precisão</h1>
+          <p class="eyebrow">Cirurgião vascular e endovascular em Brasília</p>
+          <h1>Cuidado especializado para varizes, circulação e saúde vascular</h1>
           <p class="lead">
-            Especialista em Cirurgia Vascular pela SBACV/AMB, com formação completa em Cirurgia Geral,
-            Cirurgia Vascular, Angiorradiologia e Cirurgia Endovascular.
+            Avaliação e acompanhamento de doenças venosas, arteriais e linfáticas com foco em diagnóstico preciso,
+            tratamento individualizado e orientação segura para cada paciente.
           </p>
           <div class="hero-actions">
             <a class="button button-primary" href="https://www.rededorsaoluiz.com.br/encontre-um-medico/perfil/ronaldo-soares-de-moura-filho" target="_blank" rel="noopener noreferrer" data-track="hero_agendar_consulta">Agendar consulta</a>
-            <a class="button button-secondary" href="#especialidades">Ver especialidades</a>
+            <a class="button button-secondary" href="#quando-procurar">Quando procurar</a>
           </div>
-          <p class="note">Atendimento em hospitais de referência da Rede D'Or no Distrito Federal</p>
+          <p class="note">CRM 30373/DF · RQE 21394 · Atendimento em hospitais de referência da Rede D'Or no Distrito Federal</p>
         </div>
         <div class="hero-image">
-          <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=1200&h=1200&fit=crop&auto=format" alt="Modelo anatômico em ambiente clínico" />
+          <img src="https://raw.githubusercontent.com/galvaodev-web/healthcare-landing-page/dca3d348d60738cb996bbf9814ce7856b443ca0c/src/assets/Landingpage.jpg" alt="Dr. Ronaldo Soares de Moura Filho em ambiente profissional" />
           <div class="floating">
             <small>Disponível</small>
-            <p>Agendamento pela Rede D'Or</p>
-            <p style="color: var(--muted-foreground); font-weight: 500;">Atendimento em Brasília - DF</p>
+            <p>Cirurgia Vascular, Endovascular e Eco-Doppler</p>
+            <p class="floating-note">Atendimento em Brasília - DF</p>
           </div>
         </div>
       </section>
 
+      <!-- Números rápidos que reforçam formação, especialização e locais de atuação. -->
       <section class="stats">
         <div class="container stats-grid">
           <div><div class="stat-value">UFF</div><div class="stat-label">Graduação em Medicina</div></div>
-          <div><div class="stat-value">3</div><div class="stat-label">Residências médicas</div></div>
+          <div><div class="stat-value">Vascular</div><div class="stat-label">Cirurgia vascular e endovascular</div></div>
           <div><div class="stat-value">SBACV</div><div class="stat-label">Título de especialista</div></div>
           <div><div class="stat-value">4</div><div class="stat-label">Hospitais da Rede D'Or no DF</div></div>
         </div>
       </section>
 
+      <!-- Especialidades atendidas, apresentadas em cards para facilitar a leitura. -->
       <section id="especialidades" class="section">
         <div class="container center">
           <p class="eyebrow">Áreas de atuação</p>
           <h2>Especialidades</h2>
           <p class="section-copy">
-            Cuidado especializado para a saúde vascular, da avaliação clínica ao tratamento cirúrgico e endovascular.
+            Atuação em prevenção, diagnóstico e tratamento de alterações venosas, arteriais e linfáticas,
+            com conduta definida a partir da história clínica e dos exames de cada paciente.
           </p>
         </div>
         <div class="container grid services">
           <article class="card">
-            <h3>Angiologia</h3>
-            <p>Avaliação clínica, prevenção, diagnóstico e acompanhamento das doenças que afetam artérias, veias e vasos linfáticos.</p>
-            <div class="detail">Prevenção · Diagnóstico · Acompanhamento</div>
+            <h3>Varizes e doença venosa</h3>
+            <p>Avaliação de varizes, vasinhos, inchaço, dor, peso nas pernas e sinais de insuficiência venosa para definir acompanhamento ou tratamento.</p>
+            <div class="detail">Varizes · Vasinhos · Inchaço</div>
           </article>
           <article class="card">
-            <h3>Cirurgia Vascular</h3>
-            <p>Tratamento cirúrgico das doenças vasculares, com indicação individualizada e cuidado em todas as etapas do atendimento.</p>
-            <div class="detail">Artérias · Veias · Sistema linfático</div>
+            <h3>Trombose e circulação venosa</h3>
+            <p>Investigação de suspeita ou histórico de trombose, orientação de prevenção e acompanhamento conforme risco individual.</p>
+            <div class="detail">Trombose · Prevenção · Seguimento</div>
           </article>
           <article class="card">
-            <h3>Cirurgia Endovascular</h3>
-            <p>Abordagem por técnicas minimamente invasivas para o tratamento de diferentes condições vasculares.</p>
-            <div class="detail">Angiorradiologia · Técnicas endovasculares</div>
+            <h3>Doenças arteriais</h3>
+            <p>Avaliação de alterações da circulação arterial, dor ao caminhar, feridas de difícil cicatrização e risco vascular em pacientes diabéticos.</p>
+            <div class="detail">Artérias · Pé diabético · Feridas</div>
           </article>
           <article class="card">
-            <h3>Ecografia Vascular</h3>
-            <p>Avaliação vascular por Eco-Doppler, contribuindo para um diagnóstico preciso e para o planejamento do tratamento.</p>
+            <h3>Eco-Doppler vascular</h3>
+            <p>Exame de ultrassom vascular para avaliar fluxo sanguíneo em artérias e veias, auxiliando o diagnóstico e o planejamento terapêutico.</p>
             <div class="detail">Eco-Doppler · Ultrassonografia vascular</div>
           </article>
         </div>
       </section>
 
+      <!-- Orienta o paciente sobre sintomas e situações que merecem avaliação vascular. -->
       <section id="quando-procurar" class="section">
         <div class="container">
           <div>
             <p class="eyebrow">Quando procurar</p>
             <h2>Sinais que merecem avaliação vascular</h2>
-            <p class="section-copy" style="margin-left: 0;">
+            <p class="section-copy section-copy-left">
               A avaliação médica ajuda a identificar alterações de circulação, orientar prevenção
               e definir se há necessidade de exames complementares.
             </p>
           </div>
-          <div class="grid four-grid">
+          <div class="grid three-grid">
             <article class="card feature-card">
               <h3>Dor, peso ou cansaço nas pernas</h3>
               <p>Sintomas persistentes, piora ao longo do dia ou sensação de queimação podem indicar necessidade de avaliação vascular.</p>
@@ -184,18 +208,18 @@
               <h3>Trombose, feridas ou pé diabético</h3>
               <p>Histórico de trombose, feridas de difícil cicatrização ou alterações circulatórias pedem cuidado especializado.</p>
             </article>
-            <article class="card feature-card">
-              <h3>Sinais de alerta</h3>
-              <p>Dor súbita intensa, falta de ar, perda de força, alteração de cor importante ou ferida grave exigem atendimento de urgência.</p>
-            </article>
           </div>
-          <div class="alert-band">
-            Em caso de dor súbita intensa, falta de ar, perda de força, alteração importante de cor
-            ou temperatura em membro, procure atendimento de urgência.
+          <div class="alert-band urgent-band">
+            <strong>Procure atendimento de urgência imediatamente</strong>
+            <span>
+              Dor súbita intensa, falta de ar, perda de força, alteração importante de cor ou temperatura
+              em um membro, suspeita de trombose aguda ou ferida grave não devem aguardar consulta eletiva.
+            </span>
           </div>
         </div>
       </section>
 
+      <!-- Biografia profissional, foto, formação e registros do médico. -->
       <section id="sobre" class="section about">
         <div class="container about-grid">
           <div class="portrait">
@@ -238,6 +262,7 @@
         </div>
       </section>
 
+      <!-- Linha do tempo com formação acadêmica e trajetória profissional. -->
       <section id="trajetoria" class="section">
         <div class="container center">
           <p class="eyebrow">Formação e experiência</p>
@@ -257,6 +282,7 @@
         </div>
       </section>
 
+      <!-- Lista os hospitais e unidades onde o atendimento pode ocorrer. -->
       <section id="locais" class="section soft-section">
         <div class="container center">
           <p class="eyebrow">Locais de atendimento</p>
@@ -286,35 +312,108 @@
         </div>
       </section>
 
+      <!-- Perguntas frequentes para reduzir dúvidas antes da consulta. -->
       <section id="duvidas" class="section">
         <div class="container center">
           <p class="eyebrow">Dúvidas frequentes</p>
           <h2>Perguntas comuns antes da consulta</h2>
         </div>
-        <div class="container grid two-grid">
-          <article class="card">
-            <h3>Quando devo procurar um angiologista ou cirurgião vascular?</h3>
-            <p>Dor, inchaço, varizes, sensação de peso nas pernas, feridas que demoram a cicatrizar, histórico de trombose ou suspeita de alteração circulatória justificam avaliação especializada.</p>
+        <div class="container grid two-grid faq-list">
+          <article class="card faq-item">
+            <h3><button class="faq-question" type="button" aria-expanded="false">Quando devo procurar um angiologista ou cirurgião vascular?</button></h3>
+            <p class="faq-answer">Dor, inchaço, varizes, sensação de peso nas pernas, feridas que demoram a cicatrizar, histórico de trombose ou suspeita de alteração circulatória justificam avaliação especializada.</p>
           </article>
-          <article class="card">
-            <h3>O que é o Eco-Doppler vascular?</h3>
-            <p>É um exame de ultrassom que avalia o fluxo de sangue em artérias e veias, ajudando no diagnóstico e no planejamento do tratamento.</p>
+          <article class="card faq-item">
+            <h3><button class="faq-question" type="button" aria-expanded="false">O que é o Eco-Doppler vascular?</button></h3>
+            <p class="faq-answer">É um exame de ultrassom que avalia o fluxo de sangue em artérias e veias, ajudando no diagnóstico e no planejamento do tratamento.</p>
           </article>
-          <article class="card">
-            <h3>Toda doença vascular precisa de cirurgia?</h3>
-            <p>Não. A conduta depende do diagnóstico, dos sintomas, dos exames e do contexto de cada paciente. Muitas situações podem ser acompanhadas clinicamente.</p>
+          <article class="card faq-item">
+            <h3><button class="faq-question" type="button" aria-expanded="false">Toda doença vascular precisa de cirurgia?</button></h3>
+            <p class="faq-answer">Não. A conduta depende do diagnóstico, dos sintomas, dos exames e do contexto de cada paciente. Muitas situações podem ser acompanhadas clinicamente.</p>
           </article>
-          <article class="card">
-            <h3>Onde é feito o atendimento?</h3>
-            <p>O atendimento ocorre em Brasília, em hospitais da Rede D'Or. Locais, horários e disponibilidade devem ser confirmados no agendamento oficial.</p>
+          <article class="card faq-item">
+            <h3><button class="faq-question" type="button" aria-expanded="false">Quais exames devo levar para a consulta?</button></h3>
+            <p class="faq-answer">Leve exames anteriores, receitas em uso, relatórios médicos e informações sobre cirurgias, trombose, diabetes, tabagismo ou histórico familiar de doença vascular.</p>
           </article>
-          <article class="card">
-            <h3>Atende por convênio?</h3>
-            <p>A disponibilidade por convênio pode variar conforme unidade, agenda e plano. A confirmação deve ser feita diretamente no ambiente oficial da Rede D'Or.</p>
+          <article class="card faq-item">
+            <h3><button class="faq-question" type="button" aria-expanded="false">Onde é feito o atendimento?</button></h3>
+            <p class="faq-answer">O atendimento ocorre em Brasília, em hospitais da Rede D'Or. Locais, horários e disponibilidade devem ser confirmados no agendamento oficial.</p>
+          </article>
+          <article class="card faq-item">
+            <h3><button class="faq-question" type="button" aria-expanded="false">Atende por convênio?</button></h3>
+            <p class="faq-answer">A disponibilidade por convênio pode variar conforme unidade, agenda e plano. A confirmação deve ser feita diretamente no ambiente oficial da Rede D'Or.</p>
           </article>
         </div>
       </section>
 
+      <!-- Avaliações: carrossel discreto com relatos selecionados e link externo. -->
+      <section id="avaliacoes" class="section reviews-section soft-section">
+        <div class="container center">
+          <p class="eyebrow">Avaliações</p>
+          <h2>Experiências de pacientes</h2>
+          <p class="section-copy">
+            Relatos selecionados ajudam novos pacientes a entenderem a experiência de atendimento,
+            comunicação e orientação durante a consulta.
+          </p>
+        </div>
+        <div class="container reviews-panel">
+          <div class="reviews-summary" aria-label="Resumo das avaliações">
+            <div>
+              <span class="summary-label">Nota média</span>
+              <strong>5,0</strong>
+              <span>Avaliações de pacientes</span>
+            </div>
+            <div class="stars" aria-hidden="true">★★★★★</div>
+            <p>Comentários selecionados destacam clareza na explicação, escuta cuidadosa e orientação objetiva.</p>
+            <a class="button button-secondary" href="https://www.doctoralia.com.br/z/qF9zAV" target="_blank" rel="noopener noreferrer" data-track="avaliacoes_doctoralia">Ver perfil no Doctoralia</a>
+          </div>
+          <div>
+            <div class="reviews-carousel" aria-label="Carrossel de avaliações de pacientes">
+              <button class="carousel-button" type="button" aria-label="Avaliação anterior" data-carousel-prev>&larr;</button>
+              <div class="reviews-viewport">
+                <div class="reviews-track" id="reviews-track">
+                  <article class="card review-card" data-review-card>
+                    <div class="review-top">
+                      <strong>Paciente verificado</strong>
+                      <span class="stars" aria-label="5 de 5 estrelas">★★★★★</span>
+                    </div>
+                    <p>Atendimento claro, cuidadoso e com explicação detalhada sobre o exame e os próximos passos.</p>
+                    <span class="review-source">Relato de paciente</span>
+                  </article>
+                  <article class="card review-card" data-review-card>
+                    <div class="review-top">
+                      <strong>Paciente verificado</strong>
+                      <span class="stars" aria-label="5 de 5 estrelas">★★★★★</span>
+                    </div>
+                    <p>Consulta objetiva, transmitiu segurança e orientou bem sobre sintomas nas pernas e prevenção.</p>
+                    <span class="review-source">Relato de paciente</span>
+                  </article>
+                  <article class="card review-card" data-review-card>
+                    <div class="review-top">
+                      <strong>Paciente verificado</strong>
+                      <span class="stars" aria-label="5 de 5 estrelas">★★★★★</span>
+                    </div>
+                    <p>Boa comunicação, pontualidade e explicações acessíveis para quem chega com dúvidas.</p>
+                    <span class="review-source">Relato de paciente</span>
+                  </article>
+                  <article class="card review-card" data-review-card>
+                    <div class="review-top">
+                      <strong>Paciente verificado</strong>
+                      <span class="stars" aria-label="5 de 5 estrelas">★★★★★</span>
+                    </div>
+                    <p>Orientação tranquila, linguagem simples e atenção aos detalhes do histórico do paciente.</p>
+                    <span class="review-source">Relato de paciente</span>
+                  </article>
+                </div>
+              </div>
+              <button class="carousel-button" type="button" aria-label="Próxima avaliação" data-carousel-next>&rarr;</button>
+            </div>
+            <div class="carousel-dots" aria-label="Selecionar avaliação" data-carousel-dots></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bloco final de contato com canais de agendamento e CTA principal. -->
       <section id="contato" class="section contact">
         <div class="container contact-grid">
           <div>
@@ -332,12 +431,13 @@
             <h3>Agende sua consulta</h3>
             <p>Consulte os horários disponíveis e finalize seu agendamento no ambiente oficial da Rede D'Or.</p>
             <a class="button button-primary" href="https://www.rededorsaoluiz.com.br/paciente/marcar-consulta" target="_blank" rel="noopener noreferrer" data-track="contato_ver_horarios">Ver horários disponíveis</a>
-            <p style="font-size: 12px; text-align: center;">Você será direcionado ao site oficial da Rede D'Or.</p>
+            <p class="schedule-note">Você será direcionado ao site oficial da Rede D'Or.</p>
           </div>
         </div>
       </section>
     </main>
 
+    <!-- Rodapé com identificação profissional, registros e informação regulatória. -->
     <footer>
       <div class="footer-inner">
         <div>
@@ -348,6 +448,14 @@
         <div>© 2026 Dr. Ronaldo Soares de Moura Filho. Todos os direitos reservados.<br />CFM Resolução nº 2.336/2023 — Publicidade médica</div>
       </div>
     </footer>
+
+    <button class="back-to-top" type="button" aria-label="Voltar ao topo">&uarr;</button>
+    <div class="mobile-cta" aria-label="Ações rápidas de contato">
+      <a href="https://api.whatsapp.com/send?phone=61993712512" target="_blank" rel="noopener noreferrer" data-track="mobile_whatsapp">WhatsApp</a>
+      <a href="https://www.rededorsaoluiz.com.br/encontre-um-medico/perfil/ronaldo-soares-de-moura-filho" target="_blank" rel="noopener noreferrer" data-track="mobile_agendar">Agendar</a>
+    </div>
+
+    <!-- Script de rastreamento de cliques em links marcados com data-track. -->
     <script src="./main.js" defer></script>
   </body>
 </html>

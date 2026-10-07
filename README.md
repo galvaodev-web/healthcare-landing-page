@@ -12,6 +12,16 @@ formação médica e canais oficiais de agendamento.
 A página foi organizada para facilitar a leitura, transmitir credibilidade e
 orientar o visitante sem substituir uma consulta médica.
 
+## Estrutura
+
+```text
+.
+├── index.html
+├── README.md
+├── styles.css
+└── main.js
+```
+
 ## Objetivo
 
 O objetivo principal é reunir, em um único lugar, as informações essenciais sobre
