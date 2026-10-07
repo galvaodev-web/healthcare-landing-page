@@ -44,16 +44,6 @@ button:focus-visible {
   outline-offset: 4px;
 }
 
-.scroll-progress {
-  position: fixed;
-  inset: 0 auto auto 0;
-  z-index: 30;
-  width: var(--scroll-progress, 0%);
-  height: 3px;
-  background: linear-gradient(90deg, var(--accent), var(--primary));
-  transform-origin: left;
-}
-
 /* Header: barra fixa no topo com marca, navegação e botão principal. */
 
 .header {

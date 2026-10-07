@@ -22,7 +22,6 @@ const header = document.querySelector(".header");
 const menuToggle = document.querySelector(".menu-toggle");
 const nav = document.querySelector(".nav");
 const navLinks = document.querySelectorAll('.nav a[href^="#"]');
-const progressBar = document.querySelector(".scroll-progress");
 const backToTop = document.querySelector(".back-to-top");
 const reviewsTrack = document.querySelector("#reviews-track");
 const carouselPrev = document.querySelector("[data-carousel-prev]");
@@ -181,10 +180,6 @@ if ("IntersectionObserver" in window) {
 
 const updateScrollState = () => {
   const scrollTop = window.scrollY;
-  const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = scrollableHeight > 0 ? (scrollTop / scrollableHeight) * 100 : 0;
-
-  progressBar?.style.setProperty("--scroll-progress", `${progress}%`);
   header?.classList.toggle("is-scrolled", scrollTop > 16);
   backToTop?.classList.toggle("is-visible", scrollTop > 560);
 };
