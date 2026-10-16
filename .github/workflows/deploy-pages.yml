@@ -32,6 +32,8 @@ jobs:
           mkdir -p site
           cp index.html site/
           cp styles.css main.js site/
+          cp sitemap.xml site/
+          cp google1c55d8152d2242a0.html site/
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
