@@ -966,7 +966,7 @@ footer strong {
 
 /* Responsive: adapta grids, cabeçalho e hero para telas menores. */
 
-@media (max-width: 860px) {
+@media (max-width: 1100px) {
   body.menu-open {
     overflow: hidden;
   }

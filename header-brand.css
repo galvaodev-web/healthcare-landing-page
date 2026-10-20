@@ -1,0 +1,63 @@
+.header .brand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  flex: 0 0 auto;
+}
+
+.header .brand-logo {
+  display: block;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.header .brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header .brand-text strong {
+  font-size: 18px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.header .brand-text span {
+  margin-top: 4px;
+  font-size: 10px;
+  line-height: 1.3;
+}
+
+@media (min-width: 1101px) {
+  .header-inner {
+    max-width: 1280px;
+  }
+
+  .header .nav {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 520px) {
+  .header .brand {
+    gap: 10px;
+  }
+
+  .header .brand-logo {
+    flex-basis: 36px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .header .brand-text strong {
+    font-size: 16px;
+  }
+
+  .header .brand-text span {
+    font-size: 9px;
+  }
+}
