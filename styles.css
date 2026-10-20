@@ -1148,3 +1148,12 @@ footer strong {
     height: 36px;
   }
 }
+
+/* Cada card de perguntas mantém a altura do próprio conteúdo. */
+.faq-list {
+  align-items: start;
+}
+
+.faq-list > .faq-item {
+  align-self: start;
+}
